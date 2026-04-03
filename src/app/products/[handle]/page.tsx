@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCatalogProductByHandle, getCatalogProducts } from "@/lib/catalog";
 import { formatPrice } from "@/lib/shopify";
+import { WhatsAppOrderBtn } from "@/components/whatsapp-order-btn";
 
 type ProductPageProps = {
   params: Promise<{
@@ -120,14 +121,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
           ) : null}
 
           <div className="heroActions">
-            <button className="button primary" style={{ gap: 8 }} type="button">
-              <svg fill="none" height="18" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="18">
-                <circle cx="9" cy="21" r="1" />
-                <circle cx="20" cy="21" r="1" />
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-              </svg>
-              Add to Cart
-            </button>
+            <WhatsAppOrderBtn
+              className="button primary"
+              productName={product.title}
+              price={formatPrice(minPrice.amount, minPrice.currencyCode)}
+              style={{ gap: 8 }}
+            />
             <a className="button secondary" href={checkoutLink} rel="noreferrer" target="_blank">
               View on Shopify
             </a>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatPrice, type Product } from "@/lib/shopify";
+import { WhatsAppOrderBtn } from "@/components/whatsapp-order-btn";
 
 type ProductCardProps = {
   product: Product;
@@ -58,14 +59,12 @@ export function ProductCard({ product, badge }: ProductCardProps) {
         </div>
       </Link>
       <div style={{ padding: "0 16px 16px" }}>
-        <button className="addToCartBtn" type="button">
-          <svg fill="none" height="16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="16">
-            <circle cx="9" cy="21" r="1" />
-            <circle cx="20" cy="21" r="1" />
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-          </svg>
-          Add to Cart
-        </button>
+        <WhatsAppOrderBtn
+          className="addToCartBtn"
+          productName={product.title}
+          price={formatPrice(minPrice.amount, minPrice.currencyCode)}
+          style={{ gap: 8 }}
+        />
       </div>
     </article>
   );

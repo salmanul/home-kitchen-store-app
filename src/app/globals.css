@@ -1314,6 +1314,8 @@ img {
 /* ========================================
    Responsive
    ======================================== */
+
+/* --- Tablet (≤ 1024px) --- */
 @media (max-width: 1024px) {
   .heroGrid {
     grid-template-columns: 1fr;
@@ -1330,61 +1332,211 @@ img {
   .footerInner {
     grid-template-columns: repeat(2, 1fr);
   }
+  .productDetail {
+    gap: 24px;
+  }
 }
 
+/* --- Mobile landscape / small tablet (≤ 768px) --- */
 @media (max-width: 768px) {
+  .shell {
+    width: min(100% - 24px, 1280px);
+    padding-bottom: 48px;
+  }
+
+  /* Header */
   .siteHeaderInner {
     flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 0;
+  }
+  .siteBrand {
+    font-size: 1.15rem;
   }
   .siteSearch {
     max-width: none;
     order: 3;
     width: 100%;
   }
+  .siteSearch input {
+    height: 40px;
+    font-size: 0.88rem;
+  }
+  .headerActions {
+    gap: 14px;
+  }
+
+  /* Nav - horizontal scroll on mobile */
+  .siteNav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 20px;
+    padding: 10px 0;
+    white-space: nowrap;
+  }
+  .siteNav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hero */
+  .heroSideStack {
+    grid-template-columns: 1fr;
+  }
+  .heroPanel {
+    min-height: 280px;
+    padding: 28px 24px;
+  }
+
+  /* Services */
   .serviceStrip {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
+
+  /* Products */
   .productGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
+
+  /* Categories */
   .categoryBubbleGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
   }
+
+  /* Deals */
   .dealGrid {
     grid-template-columns: 1fr;
   }
+
+  /* Countdown */
   .countdownGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Testimonials */
   .testimonialGrid {
     grid-template-columns: 1fr;
   }
+
+  /* Promo */
+  .promoBand,
+  .countdownBand {
+    padding: 28px 24px;
+  }
+
+  /* Section headers */
+  .sectionHeader {
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+  }
+
+  .section {
+    margin-top: 40px;
+  }
+
+  /* Product detail */
   .productDetail {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
+  .productHeroImage {
+    min-height: 300px;
+  }
+
+  /* Promos */
+  .promoCard {
+    grid-template-columns: 1fr 92px;
+    min-height: auto;
+    padding: 16px;
+  }
+
+  /* Newsletter */
+  .newsletterBand {
+    padding: 32px 20px;
+  }
+
+  /* Footer */
   .footerInner {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
   .footerBottomInner {
     flex-direction: column;
     gap: 12px;
     text-align: center;
   }
-  .heroPanel {
-    min-height: 320px;
-    padding: 32px;
+
+  /* Hero actions */
+  .heroActions {
+    flex-direction: column;
+  }
+  .heroActions .button,
+  .heroActions > button {
+    width: 100%;
   }
 }
 
+/* --- Mobile portrait (≤ 480px) --- */
 @media (max-width: 480px) {
+  .shell {
+    width: min(100% - 16px, 1280px);
+  }
+
   .productGrid {
     grid-template-columns: 1fr;
   }
   .categoryBubbleGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .categoryBubbleIcon {
+    width: 72px;
+    height: 72px;
+    font-size: 1.5rem;
+  }
+  .serviceStrip {
+    grid-template-columns: 1fr;
+  }
   .newsletterForm {
     flex-direction: column;
+  }
+  .countdownGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heroPanel h1 {
+    font-size: 1.8rem;
+  }
+  .promoBand h2 {
+    font-size: 1.4rem;
+  }
+
+  .paymentMethods {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .productHeroImage {
+    min-height: 260px;
+    border-radius: 16px;
+  }
+
+  .variantRow {
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+  }
+  .variantMeta {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .addToCartBtn {
+    font-size: 0.82rem;
+    height: 38px;
   }
 }
 
@@ -1503,63 +1655,4 @@ img {
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-  .shell {
-    width: min(100% - 24px, 1180px);
-    padding-top: 24px;
-  }
-
-  .heroGrid,
-  .serviceStrip,
-  .productGrid,
-  .categoryBubbleGrid,
-  .dealGrid,
-  .countdownGrid,
-  .testimonialGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .sectionHeader {
-    align-items: start;
-    flex-direction: column;
-  }
-
-  .siteHeader,
-  .siteNav,
-  .variantRow,
-  .variantMeta {
-    align-items: start;
-    flex-direction: column;
-  }
-
-  .productDetail {
-    grid-template-columns: 1fr;
-  }
-
-  .productHeroImage {
-    min-height: 360px;
-  }
-
-  .heroPanel,
-  .promoBand,
-  .countdownBand {
-    padding: 28px 22px;
-  }
-
-  .promoCard {
-    grid-template-columns: 1fr 92px;
-    min-height: auto;
-  }
-
-  .categoryBubbleLink {
-    justify-items: start;
-    text-align: left;
-  }
-
-  .categoryBubbleIcon {
-    width: 84px;
-    height: 84px;
-  }
 }
